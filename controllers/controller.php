@@ -37,3 +37,18 @@ function addComment($postId, $author, $comment)
         header('Location: index.php?action=post&id=' . $postId);
     }
 }
+
+function addPost($title, $content, $image, $creation_date)
+{
+    $postManager = new PostManager();
+
+    $affectedLines = $postManager->postPost($title, $content, $image, $creation_date);
+
+    if ($affectedLines === false) {
+        // Erreur gérée. Elle sera remontée jusqu'au bloc try du routeur !
+        throw new Exception('Impossible d\'ajouter le commentaire !');
+    }
+    else {
+        header('Location: index.php');
+    }
+}

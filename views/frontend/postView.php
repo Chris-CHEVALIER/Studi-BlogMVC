@@ -28,7 +28,7 @@ ob_start(); // "mémorise" toute la sortie HTML qui suit
         <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
             <div>
                 <label for="author" class="form-label">Auteur</label><br>
-                <input type="text" id="author" name="author" class="form-control" mb-3>
+                <input type="text" id="author" name="author" class="form-control mb-3">
             </div>
             <div>
                 <label for="comment" class="form-label">Commentaire</label><br>

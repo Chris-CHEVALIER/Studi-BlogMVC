@@ -13,7 +13,7 @@ try { // On essaie de faire des choses
                 post();
             }
             else {
-                // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
+                // Erreur ! On arrête tout, on envoie une exception, donc on saute directement au catch
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
