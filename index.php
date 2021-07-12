@@ -32,6 +32,17 @@ try { // On essaie de faire des choses
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
+        elseif ($_GET['action'] == 'addPost') {
+            if (isset($_POST['submit'])) {
+                if (!empty($_POST['redactor']) && !empty($_POST['title']) && !empty($_POST['content'])) {
+                    addPost($_POST['redactor'], $_POST['title'], $_POST['content'], $_POST['image'], $_POST['creation_date']);
+                }
+                else {
+                    // Autre exception
+                    throw new Exception('Erreur dans le remplissage du formulaire !');
+                }
+            }
+        }
     }
     else {
         listPosts();

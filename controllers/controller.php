@@ -38,17 +38,20 @@ function addComment($postId, $author, $comment)
     }
 }
 
-function addPost($title, $content, $image, $creation_date)
+function addPost($redactor, $title, $content, $image, $creation_date)
 {
     $postManager = new PostManager();
 
-    $affectedLines = $postManager->postPost($title, $content, $image, $creation_date);
+    $lines = $postManager->postPost($redactor, $title, $content, $image, $creation_date);
 
-    if ($affectedLines === false) {
+    if ($lines === false) {
         // Erreur gérée. Elle sera remontée jusqu'au bloc try du routeur !
-        throw new Exception('Impossible d\'ajouter le commentaire !');
+        throw new Exception('Impossible d\'ajouter le post !');
     }
     else {
-        header('Location: index.php');
+        echo 'ok';
+        // header('Location: ../../index.php');
     }
+    
+    require('views/frontend/addPostView.php');
 }

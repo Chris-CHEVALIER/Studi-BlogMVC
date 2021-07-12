@@ -1,5 +1,5 @@
 <?php 
-require_once("models/Manager.php"); // appele de la classe mère
+require_once("models/Manager.php"); // appelle de la classe mère
 
 class PostManager extends Manager
 {
@@ -23,13 +23,13 @@ class PostManager extends Manager
       return $post;
   }
 
-  public function postPost($title, $content, $image)
+  public function postPost($redactor, $title, $content, $image)
   {
       $db = $this->dbConnect();
-      $posts = $db->prepare('INSERT INTO posts(title, content, image, created_date) VALUES(?, ?, ?, NOW())');
-      $affectedLines = $posts->execute(array($title, $content, $image));
+      $posts = $db->prepare('INSERT INTO posts(redactor, title, content, image, created_date) VALUES(?, ?, ?, ?, NOW())');
+      $lines = $posts->execute(array($redactor, $title, $content, $image));
 
-      return $affectedLines;
+      return $lines;
   }
 }
 

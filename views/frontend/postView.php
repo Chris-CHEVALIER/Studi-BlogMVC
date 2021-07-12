@@ -24,7 +24,7 @@ ob_start(); // "mémorise" toute la sortie HTML qui suit
     <hr>
     <h5 class="text-center mt-4">Ajouter un commentaire</h5>
     <div class="container w-50 mt-4">
-        <!-- ajoute le commentaire avec l'id du post-->
+        <!-- ajoute le commentaire au bon article avec l'id du post-->
         <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
             <div>
                 <label for="author" class="form-label">Auteur</label><br>
