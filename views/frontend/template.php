@@ -1,9 +1,3 @@
-<?php
-$indexBasename = 'index.php';
-// Si le dernier composant du chemin du script courant est index.php, dans ce cas l'URL sera #, sinon ce sera index.php.
-$indexHref = (basename($_SERVER['SCRIPT_NAME']) === $indexBasename) ? '#' : $indexBasename;
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +10,6 @@ $indexHref = (basename($_SERVER['SCRIPT_NAME']) === $indexBasename) ? '#' : $ind
 </head>
 <body class="container-fluid g-0">
 
-
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Navbar</a>
@@ -26,10 +19,12 @@ $indexHref = (basename($_SERVER['SCRIPT_NAME']) === $indexBasename) ? '#' : $ind
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../../index.php">accueil</a>
+            <!-- ICI -->
+            <a class="nav-link active" aria-current="page" href="<?= strpos($_SERVER['REQUEST_URI'], "index.php") ? "#" : "../../index.php" ?>">accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../../views/frontend/addPostView.php">ajouter post</a>
+            <!-- ICI -->
+            <a class="nav-link" href="<?= strpos($_SERVER['REQUEST_URI'], "addPostView.php") ? "#" : "./views/frontend/addPostView.php" ?>">ajouter post</a>
           </li>
         </ul>
         <form class="d-flex">

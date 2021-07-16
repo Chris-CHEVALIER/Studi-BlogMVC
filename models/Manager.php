@@ -6,7 +6,7 @@ class Manager
   // protected pour être disponible dans les classes filles
   protected function dbConnect() 
   {
-    $db = new PDO('mysql:host=localhost;dbname=blog_one;charset=utf8', 'root', '');
+    $db = new PDO('mysql:host=localhost;dbname=blog_one;charset=utf8', 'root', 'root');
     return $db;
   }
 }
